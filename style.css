@@ -7,3 +7,13 @@
     display: flex;
     align-self: center;
     }
+
+main {
+    display: flex;
+}
+
+#evaluation-form {
+width: 675px;
+display: flex;
+flex-direction: column;
+}
