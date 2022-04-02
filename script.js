@@ -4,10 +4,7 @@ function clickLogin() {
   const loginEmail = document.getElementById('loginEmail');
   const loginSenha = document.getElementById('loginSenha');
 
-  if (
-    loginEmail.value === 'tryber@teste.com' &&
-    loginSenha.value === '123456'
-  ) {
+  if (loginEmail.value === 'tryber@teste.com' && loginSenha.value === '123456') {
     alert('Olá, Tryber!');
     return;
   }
@@ -47,11 +44,7 @@ function materiasSelecionadas() {
   const materiaChecked = document.querySelectorAll('.subject');
   for (let i = 0; i < materiaChecked.length; i += 1) {
     if (materiaChecked[i].checked) {
-      if (materias.length === 0) {
-      materias.push(materiaChecked[i].value);
-      } else {
-      materias.push(' ' + materiaChecked[i].value);
-      }
+      (materias.length === 0) ? materias.push(materiaChecked[i].value) : materias.push(' ' + materiaChecked[i].value);
     }
   }
   return materias;
@@ -83,10 +76,12 @@ function notaSelecionada() {
 
 // Armazena o formulário em uma variável
 const formulario = document.getElementById('evaluation-form');
+const nome = document.getElementById('input-name');
+const sobrenome = document.getElementById('input-lastname');
 
 function requisito21() {
   const dadosCadastrais = {
-    nome: `Nome: ${document.getElementById('input-name').value} ${document.getElementById('input-lastname').value}`,
+    nome: `Nome: ${nome.value} ${sobrenome.value}`,
     email: `Email: ${document.getElementById('input-email').value}`,
     casa: `Casa: ${document.getElementById('house').value}`,
     familia: `Família: ${familiaSelecionada()}`,
