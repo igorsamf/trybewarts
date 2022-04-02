@@ -41,27 +41,60 @@ document.getElementById('textarea').addEventListener('input', atualizaContador);
 
 // BOTÃO DE ENVIAR
 
+const materias = [];
+// Adiciona a variável materias as materias selecionadas e retorna este valor.
+function materiasSelecionadas() {
+  const materiaChecked = document.querySelectorAll('.subject');
+  for (let i = 0; i < materiaChecked.length; i += 1) {
+    if (materiaChecked[i].checked) {
+      if (materias.length === 0) {
+      materias.push(materiaChecked[i].value);
+      } else {
+      materias.push(' ' + materiaChecked[i].value);
+      }
+    }
+  }
+  return materias;
+}
+
+const familia = [];
+// Adiciona a variável familia a familia selecionada e retorna este valor.
+function familiaSelecionada() {
+  const familiaChecked = document.querySelectorAll('.familia');
+  for (let i = 0; i < familiaChecked.length; i += 1) {
+    if (familiaChecked[i].checked) {
+      familia.push(familiaChecked[i].value);
+    }
+  }
+  return familia;
+}
+
+const nota = [];
+// Adiciona a variável nota a nota selecionada e retorna este valor.
+function notaSelecionada() {
+  const notaChecked = document.querySelectorAll('.rate');
+  for (let i = 0; i < notaChecked.length; i += 1) {
+    if (notaChecked[i].checked) {
+      nota.push(notaChecked[i].value);
+    }
+  }
+  return nota;
+}
+
 // Armazena o formulário em uma variável
 const formulario = document.getElementById('evaluation-form');
 
 function requisito21() {
-  // Objeto criado para armazenar os dados do formulário a serem exibidos no final.
-  let dadosCadastrais = {
-    nome: `Nome: ${document.getElementById('input-name').value} ${
-      document.getElementById('input-lastname').value
-    }`,
+  const dadosCadastrais = {
+    nome: `Nome: ${document.getElementById('input-name').value} ${document.getElementById('input-lastname').value}`,
     email: `Email: ${document.getElementById('input-email').value}`,
     casa: `Casa: ${document.getElementById('house').value}`,
-    familia: `Família: ????`,
-    materias: `Matérias: ????`,
-    avaliacao: `Avaliação: ????`,
+    familia: `Família: ${familiaSelecionada()}`,
+    materias: `Matérias: ${materiasSelecionadas()}`,
+    avaliacao: `Avaliação: ${notaSelecionada()}`,
     obs: `Observações: ${document.getElementById('textarea').value}`,
   };
-
-  // Apaga todo o conteúdo do formulário.
   formulario.innerHTML = '';
-
-  // O loop abaixo cria elementos <p>, insere neles o texto e os coloca como filhos do formulário que está vazio.
   for (let i = 0; i < Object.keys(dadosCadastrais).length; i += 1) {
     const novoCampo = document.createElement('p');
     novoCampo.innerText = Object.values(dadosCadastrais)[i];
