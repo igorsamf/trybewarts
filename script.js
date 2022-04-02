@@ -38,13 +38,15 @@ document.getElementById('textarea').addEventListener('input', atualizaContador);
 
 // BOTÃO DE ENVIAR
 
-const materias = [];
+let materias = '';
 // Adiciona a variável materias as materias selecionadas e retorna este valor.
 function materiasSelecionadas() {
   const materiaChecked = document.querySelectorAll('.subject');
   for (let i = 0; i < materiaChecked.length; i += 1) {
-    if (materiaChecked[i].checked) {
-      (materias.length === 0) ? materias.push(materiaChecked[i].value) : materias.push(' ' + materiaChecked[i].value);
+    if (materias === '' && materiaChecked[i].checked) {
+      materias = materiaChecked[i].value;
+    } else if (materiaChecked[i].checked) {
+      materias = `${materias}, ${materiaChecked[i].value}`;
     }
   }
   return materias;
