@@ -27,14 +27,12 @@ function sendForm() {
     buttonId.disabled = true;
 }
 
+//////////////////////////////////////// LÓGICA DO CONTADOR DE CARACTERES
 
+document.getElementById('textarea').addEventListener('input', atualizaContador);
 
+function atualizaContador () {
+    document.getElementById('counter').innerText = 500 - this.value.length;
+}
 
-// SE A CHECKBOX ESTIVER SELECIONADA
-//     >>> BOTÃO ATIVO
-
-// SE A CHECKBOX NÃO ESTIVER SELECIONADA
-//     >>> BOTÃO INATIVO
-
-//     o id do checkbox é 'agreement'
-//     o id do botão é 'submit-btn'
+//////////////////////////////////////// BOTÃO DE ENVIAR
