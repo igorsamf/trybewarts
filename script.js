@@ -21,7 +21,7 @@ const buttonId = document.getElementById('submit-btn');
 function sendForm() {
   if (this.checked) {
     buttonId.disabled = false;
-    return; 
+    return;
   }
   buttonId.disabled = true;
 }
@@ -79,7 +79,7 @@ function notaSelecionada() {
 // Armazena o formulário em uma variável
 const formulario = document.getElementById('evaluation-form');
 const nome = document.getElementById('input-name');
-const sobrenome = document.getElementById('input-lastname'); 
+const sobrenome = document.getElementById('input-lastname');
 
 function requisito21() {
   const dadosCadastrais = {
