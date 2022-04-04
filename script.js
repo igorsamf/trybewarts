@@ -21,7 +21,7 @@ const buttonId = document.getElementById('submit-btn');
 function sendForm() {
   if (this.checked) {
     buttonId.disabled = false;
-    return;
+    return; 
   }
   buttonId.disabled = true;
 }
